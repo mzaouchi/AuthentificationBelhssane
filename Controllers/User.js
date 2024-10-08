@@ -4,7 +4,7 @@ var jwt = require('jsonwebtoken');
 
 exports.SignUp=async(req,res)=>{
     try {
-        const {name,email,password} = req.body
+        const {email,password} = req.body
 
         const found = await User.findOne({email})
 
@@ -58,3 +58,5 @@ exports.SignIn=async(req,res)=>{
         res.status(500).send({errors : [{msg : "Could not loggin"}]})
     }
 }
+
+exports.CurrentUser =(req,res)=>{res.send(req.user)}

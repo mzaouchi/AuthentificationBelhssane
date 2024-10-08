@@ -9,4 +9,4 @@ const userSchema = new mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model('ala',userSchema)
+module.exports = mongoose.model('alala',userSchema)

@@ -1,5 +1,5 @@
 const express = require('express')
-const { SignUp, SignIn } = require('../Controllers/User')
+const { SignUp, SignIn, CurrentUser } = require('../Controllers/User')
 const { Validation, validationRegister } = require('../Middlewares/Validator')
 const { isAuth } = require('../Middlewares/isAuth')
 
@@ -10,5 +10,6 @@ userRouter.post('/SignUp',validationRegister,Validation,SignUp)
 
 userRouter.post('/SignIn',SignIn)
 
-userRouter.get('/CurrentUser',isAuth,(req,res)=>{res.send(req.user)})
+userRouter.get('/CurrentUser',isAuth,CurrentUser)
+
 module.exports = userRouter
